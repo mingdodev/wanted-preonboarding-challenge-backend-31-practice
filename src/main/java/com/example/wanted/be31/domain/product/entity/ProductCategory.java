@@ -1,6 +1,5 @@
-package com.example.wanted.be31.domain.product.entity.component;
+package com.example.wanted.be31.domain.product.entity;
 
-import com.example.wanted.be31.domain.product.entity.Product;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,8 +11,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "product_images")
-public class ProductImage {
+@Table(name = "product_categories")
+public class ProductCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,19 +22,10 @@ public class ProductImage {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @Column(nullable = false)
-    private String url;
-
-    @Column(name = "alt_text")
-    private String altText;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
     @Column(name = "is_primary")
     private Boolean isPrimary = false;
-
-    @Column(name = "display_order")
-    private Integer displayOrder = 0;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "option_id")
-    private ProductOption productOption;
 }

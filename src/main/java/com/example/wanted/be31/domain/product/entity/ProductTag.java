@@ -1,7 +1,5 @@
-package com.example.wanted.be31.domain.product.entity.mapping;
+package com.example.wanted.be31.domain.product.entity;
 
-import com.example.wanted.be31.domain.product.entity.Product;
-import com.example.wanted.be31.domain.product.entity.classification.Tag;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;

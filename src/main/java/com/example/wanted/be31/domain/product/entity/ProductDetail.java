@@ -1,6 +1,5 @@
-package com.example.wanted.be31.domain.product.entity.component;
+package com.example.wanted.be31.domain.product.entity;
 
-import com.example.wanted.be31.domain.product.entity.Product;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,9 +10,19 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "product_details")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ProductDetail {
 
     @Id
@@ -28,7 +37,7 @@ public class ProductDetail {
     private BigDecimal weight;
 
     @Column(columnDefinition = "jsonb")
-    private String dimensions;
+    private String dimensions; // JSON: {"width": float, "height": float, "depth": float}
 
     @Column(columnDefinition = "text")
     private String materials;
